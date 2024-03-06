@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard</title>
+<style>
+  
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  #header {
+    background-color: #5c7f5e;
+    color: white;
+    padding: 10px;
+    text-align: center;
+  }
+  #navbar {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    position: fixed;
+    width: 200px;
+    height: 100%;
+    overflow: auto;
+  }
+  #navbar a {
+    padding: 10px 15px;
+    text-decoration: none;
+    color: white;
+    display: block;
+  }
+  #navbar a.active {
+    background-color: #666;
+  }
+  #navbar a:hover:not(.active) {
+    background-color: #555;
+  }
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #707070;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  .dropdown-content a {
+    color: rgb(0, 0, 0);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+  }
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  #main {
+    margin-left: 220px;
+    padding: 10px;
+  }
+  .chart {
+    width: 70%;
+    height: 800px;
+    background-color: #ddd;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  .description {
+    margin-top: 20px;
+  }
+  .menu-button {
+    background-color: #5c7f5e;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<div id="header">
+  <button class="menu-button">Main</button>
+  <button class="menu-button">Menu</button>
+  <button class="menu-button">Back</button>
+</div>
+
+<div id="navbar">
+  <div class="dropdown">
+    <a href="#" class="active">DATA</a>
+    <div class="dropdown-content">
+      <a href="{% url 'link_1' %}">Link 1</a>
+      <a href="{% url 'link_2' %}">Link 2</a>
+      <a href="{% url 'link_3' %}">Link 3</a>
+      <!-- more links can be added here -->
+    </div>
+  </div>
+  <div class="dropdown">
+    <a href="#">Charts</a>
+    <div class="dropdown-content">
+      <a href="#">Link 1</a>
+      <a href="#">Link 2</a>
+      <a href="#">Link 3</a>
+      <!-- more links can be added here -->
+    </div>
+  </div>
+  <div class="dropdown">
+    <a href="#">Others</a>
+    <div class="dropdown-content">
+      <a href="#">Link 1</a>
+      <a href="#">Link 2</a>
+      <a href="#">Link 3</a>
+      <!-- more links can be added here -->
+    </div>
+  </div>
+</div>
+
+<div id="main">
+  <div class="chart">
+    <!-- Chart goes here -->
+    <img src="{% static 'data_plotting/test1.png' %}" alt="Test Image">
+    <p>charts</p>
+  </div>
+  <div class="description">
+    <!-- Description goes here -->
+    <p>description</p>
+  </div>
+</div>
+
+</body>
+</html>
